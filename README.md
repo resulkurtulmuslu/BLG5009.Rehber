@@ -1,1 +1,1 @@
-# BLG5009.Rehber
+# BLG5009 Rehber Uygulaması
