@@ -1,0 +1,32 @@
+﻿@model ICollection<User>
+
+@{
+    ViewData["Title"] = "Rehber";
+}
+<div class="row">
+    <h4>Favoriler</h4>
+</div>
+<div class="row" id="starRow">
+</div>
+<div class="row mt-5">
+    <h4>Rehber Listesi</h4>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table dataTable table-bordered table-striped" id="userTable">
+            <thead>
+                <tr>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Ad</th>
+                    <th scope="col">Soyad</th>
+                    <th scope="col">Takma Ad</th>
+                    <th scope="col" class="text-center">Favori</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts{ 
+    <script src="~/js/user-book.js" charset="utf-8"></script>
+}
