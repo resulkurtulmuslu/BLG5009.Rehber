@@ -116,6 +116,7 @@ function userTableContextmenu() {
                                 async: true,
                                 success: function (result) {
                                     userTable.ajax.reload(null, false);
+                                    getRandomStarUser();
                                     alertify.notify('İşlem Başarılı', 'success', 5);
                                 },
                                 error: function (ex) {
@@ -193,6 +194,13 @@ function getRandomStarUser() {
         async: true,
         success: function (result) {
             $('#starRow').empty();
+
+            if (result.length > 0) {
+                $('#favoriteRow').css('display', 'block');
+            }
+            else {
+                $('#favoriteRow').css('display', 'none');
+            }
 
             $.each(result, function (i, v) {
 

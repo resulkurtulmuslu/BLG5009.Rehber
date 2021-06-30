@@ -129,7 +129,7 @@ namespace BLG5009.Rehber.WebApp.Controllers
 
         public async Task<ICollection<User>> GetStarRandomUsers()
         {
-            return await _dbContext.Users.Where(x => x.Star).OrderBy(r => Guid.NewGuid()).Take(6).ToListAsync();
+            return await _dbContext.Users.Where(x => x.Star).OrderBy(r => Guid.NewGuid()).Take(4).ToListAsync();
         }
 
         public async Task<bool> SetStar(int id, bool status)
