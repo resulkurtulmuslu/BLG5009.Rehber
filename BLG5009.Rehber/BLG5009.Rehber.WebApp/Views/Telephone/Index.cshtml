@@ -1,0 +1,29 @@
+﻿@using BLG5009.Rehber.WebApp.Models
+@{
+    ViewData["Title"] = "Telefon Numaraları";
+    User user = ViewBag.User;
+}
+<div class="row mt-5">
+    <h4>@user.FirstName @user.LastName Telefon Numarası Listesi</h4>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table dataTable table-bordered table-striped" id="telephoneTable">
+            <thead>
+                <tr>
+                    <th scope="col">Telefon Numarası Tipi</th>
+                    <th scope="col">Telefon Numarası</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/telephone-number.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            getTelephoneTable(@user.Id)
+        });
+    </script>
+}

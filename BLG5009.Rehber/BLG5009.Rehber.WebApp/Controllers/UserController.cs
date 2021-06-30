@@ -26,6 +26,7 @@ namespace BLG5009.Rehber.WebApp.Controllers
             _hostEnvironment = hostEnvironment;
         }
 
+        [Route("rehber")]
         public IActionResult Index()
         {
             return View();

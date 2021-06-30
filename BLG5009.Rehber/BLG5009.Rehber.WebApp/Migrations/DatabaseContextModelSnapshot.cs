@@ -30,6 +30,9 @@ namespace BLG5009.Rehber.WebApp.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -52,6 +55,9 @@ namespace BLG5009.Rehber.WebApp.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -73,6 +79,9 @@ namespace BLG5009.Rehber.WebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(15)")
                         .HasMaxLength(15);
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

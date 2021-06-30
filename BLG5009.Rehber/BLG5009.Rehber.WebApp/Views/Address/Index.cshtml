@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Adresler";
+    User user = ViewBag.User;
+}
+<div class="row mt-5">
+    <h4>@user.FirstName @user.LastName Adres Listesi</h4>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table dataTable table-bordered table-striped" id="addressTable">
+            <thead>
+                <tr>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Adres Tipi</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/address.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            getAddressTable(@user.Id)
+        });
+    </script>
+}

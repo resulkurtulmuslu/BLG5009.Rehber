@@ -13,6 +13,15 @@ $(function () {
             dataType: 'json',
             async: true
         },
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'Yeni Kayıt',
+                action: function (e, dt, node, config) {
+                    getForm(null);
+                }
+            }
+        ],
         rowId: "id",
         columns: [
             { data: "image", name: "image", className: "text-center", orderable: false },
@@ -118,12 +127,25 @@ function userTableContextmenu() {
 
                         }).set('labels', { ok: 'Evet Sil!', cancel: 'İptal' });
                     break;
+                case 'telephone':
+                    window.location.href = '/telefon-numaralari/' + id;
+                    break;
+                case 'email':
+                    window.location.href = '/eposta-adresleri/' + id;
+                    break;
+                case 'address':
+                    window.location.href = '/kullanici-adresleri/' + id;
+                    break;
             }
         },
         items: {
             "add": { name: "Yeni Kayıt", icon: "add" },
             "update": { name: "Düzenle", icon: "edit" },
             "delete": { name: "Kaldır", icon: "delete" },
+            separator1: "-----",
+            "telephone": { name: "Telefon Numaraları", icon: "fas fa-phone-alt" },
+            "email": { name: "E-Posta Adresleri", icon: "fas fa-at" },
+            "address": { name: "Adresler", icon: "fas fa-map-marked-alt" },
         }
     })
 }
@@ -178,13 +200,13 @@ function getRandomStarUser() {
 
                 let html = '<div class="col-3">' +
                     '<div class="card text-center">' +
-                    '<img class="card-img-top" src="' + image  + '" alt="' + v.nickName + '" height="200">' +
-                        '<div class="card-body">' +
-                        '<h5 class="card-title">' + v.firstName + ' ' + v.lastName + '</h5>' +
-                        '<a href="#" class="btn btn-primary">Git</a>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>';
+                    '<img class="card-img-top" src="' + image + '" alt="' + v.nickName + '" height="200">' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">' + v.firstName + ' ' + v.lastName + '</h5>' +
+                    '<a href="#" class="btn btn-primary">Git</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
 
                 $('#starRow').append(html);
             });

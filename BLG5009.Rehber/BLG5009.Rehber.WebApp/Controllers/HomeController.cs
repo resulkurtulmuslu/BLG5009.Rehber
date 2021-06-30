@@ -19,6 +19,7 @@ namespace BLG5009.Rehber.WebApp.Controllers
             _logger = logger;
         }
 
+        [Route("")]
         public IActionResult Index()
         {
             return View();

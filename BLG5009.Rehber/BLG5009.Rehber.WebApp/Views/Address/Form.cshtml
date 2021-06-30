@@ -1,0 +1,55 @@
+﻿@model BLG5009.Rehber.WebApp.Models.Address
+@{
+    Layout = null;
+}
+
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <form id="addressForm" asp-action="Form" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">E-Posta Formu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="UserId" />
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <textarea asp-for="AddressText" rows="5" cols="40" class="form-control" placeholder="Adres Metni"></textarea>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <select asp-for="Type" class="form-control" asp-items="@(new SelectList(ViewBag.Types,"Key","Value",Model.Type))"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#addressForm").submit(function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var formData = new FormData(this);
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function (data) {
+                addressTable.ajax.reload(null, false);
+                alertify.notify('İşlem Başarılı', 'success', 5);
+                $('#systemModal').modal('hide');
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+</script>
