@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BLG5009.Rehber.WebApp.Models.Context
 {
@@ -19,14 +15,20 @@ namespace BLG5009.Rehber.WebApp.Models.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().Property(x => x.FirstName).HasMaxLength(50).IsRequired();
-            modelBuilder.Entity<User>().Property(x => x.LastName).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<User>()
+                .Property(x => x.FirstName).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<User>()
+                .Property(x => x.LastName).HasMaxLength(50).IsRequired();
 
-            modelBuilder.Entity<User>().Property(x => x.NickName).HasMaxLength(20);
+            modelBuilder.Entity<User>()
+                .Property(x => x.NickName).HasMaxLength(20);
 
-            modelBuilder.Entity<Telephone>().Property(x => x.Number).HasMaxLength(15).IsRequired();
-            modelBuilder.Entity<Address>().Property(x => x.AddressText).HasMaxLength(500).IsRequired();
-            modelBuilder.Entity<Email>().Property(x => x.EmailAddress).HasMaxLength(150).IsRequired();
+            modelBuilder.Entity<Telephone>()
+                .Property(x => x.Number).HasMaxLength(15).IsRequired();
+            modelBuilder.Entity<Address>()
+                .Property(x => x.AddressText).HasMaxLength(500).IsRequired();
+            modelBuilder.Entity<Email>()
+                .Property(x => x.EmailAddress).HasMaxLength(150).IsRequired();
 
         }
     }

@@ -1,15 +1,15 @@
-﻿using BLG5009.Rehber.WebApp.Models.Context;
+﻿using BLG5009.Rehber.WebApp.Methods;
+using BLG5009.Rehber.WebApp.Models;
+using BLG5009.Rehber.WebApp.Models.Context;
+using BLG5009.Rehber.WebApp.Models.Enums;
+using BLG5009.Rehber.WebApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
-using BLG5009.Rehber.WebApp.Models.ViewModels;
-using Microsoft.EntityFrameworkCore;
-using BLG5009.Rehber.WebApp.Methods;
-using BLG5009.Rehber.WebApp.Models;
-using BLG5009.Rehber.WebApp.Models.Enums;
+using System.Threading.Tasks;
 
 namespace BLG5009.Rehber.WebApp.Controllers
 {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BLG5009.Rehber.WebApp.Methods
 {
@@ -12,11 +11,11 @@ namespace BLG5009.Rehber.WebApp.Methods
         {
             return Enum.GetValues(typeof(T))
                 .Cast<T>()
-                .Select(p => new KeyValuePair<T, string>(
-                    p,
+                .Select(p => new KeyValuePair<T, string>(p,
                     (p.GetType().GetField(p.ToString())
                     .GetCustomAttributes(typeof(DescriptionAttribute), false)
-                    .FirstOrDefault() as DescriptionAttribute)?.Description ?? p.ToString()))
+                    .FirstOrDefault() as DescriptionAttribute)
+                    ?.Description ?? p.ToString()))
                     .ToList();
         }
 
